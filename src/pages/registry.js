@@ -1,12 +1,15 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Header from '../components/Header';
 
-const SecondPage = () => (
+const RegistryPage = () => (
   <div>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <Header />
+    <section>
+      <h2>Gift Registry</h2>
+      <img />
+      <h3>Someplace</h3>
+    </section>
   </div>
-)
+);
 
-export default SecondPage
+export default RegistryPage;

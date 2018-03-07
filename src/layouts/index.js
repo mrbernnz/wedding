@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { TypographyStyle } from 'react-typography';
+import typography from '../util/typography';
 
-import Header from '../components/Header';
-import './index.scss';
+import Footer from '../components/Footer';
+import '../sass/main.scss';
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet
-      title="Noel & Tricia Wedding Website"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
-      ]}
-    />
-    <Header />
+    <Helmet>
+      <title>Noel & Tricia Wedding Website</title>
+      <meta name="description" content="Our wedding website" />
+      <meta name="keywords" content="wedding, noel sagaille, tricia quartey" />
+      <TypographyStyle typography={typography} />
+    </Helmet>
     <div
       style={{
         margin: '0 auto',
@@ -25,6 +25,7 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
+    <Footer />
   </div>
 );
 

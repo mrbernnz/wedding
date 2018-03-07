@@ -1,0 +1,80 @@
+.mastheadContainer {
+  /*
+   * font-family: 'Adobe Caslon Pro Regular';
+   * font-weight: 400;
+   * font-style: normal;
+   */
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 16.8px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  background-image:
+    url(../../images/undefined_orwyu7H.png),
+    none;
+  background-position: center top, left top;
+  background-repeat: no-repeat, repeat;
+  background-size: 800px, auto;
+  text-align: center;
+  padding: 100px 0 0;
+
+  & div {
+    margin: 0 auto;
+    max-width: 1170px;
+    box-sizing: border-box;
+
+    & div {
+      padding: 0 15px;
+
+      & .verticalNames {
+        padding: 30px 0;
+        text-align: center;
+
+        & .name {
+          margin: 25px auto 20px;
+
+          & h1 {
+            /*
+             * font-family: "Charcuterie Engraved Regular";
+             * font-weight: 400;
+             * font-style: normal;
+             */
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 4.2px;
+            font-size: 21.6px;
+            color: rgb(255, 255, 255);
+            margin: 0;
+          }
+        }
+
+        & .coupleNameSeperator {
+          /*
+           * font-family: "Adobe Caslon Pro Regular";
+           * font-weight: 400;
+           * font-style: normal;
+           */
+          line-height: 1;
+          text-transform: none;
+          letter-spacing: 1.5px;
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 544px) {
+  .mastheadContainer {
+    background-size: 1200px auto;
+    padding: 75px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mastheadContainer {
+    background-size: 1600px auto;
+    padding: 100px 0 0 0;
+  }
+}
