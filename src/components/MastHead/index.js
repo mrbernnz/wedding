@@ -11,17 +11,16 @@ const MastHead = () => (
         <div>
           <div className="verticalNames">
             <div className="name">
-              <h1>Tricia quartey</h1>
+              <h1 style={{ fontSize: '43.2px' }}>Tricia quartey</h1>
             </div>
             <div className="coupleNameSeperator">and</div>
             <div className="name">
-              <h1>Noel Sagaille</h1>
+              <h1 style={{ fontSize: '43.2px' }}>Noel Sagaille</h1>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <NavBar />
   </header>
 );
 

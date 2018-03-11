@@ -7,15 +7,17 @@
 }
 
 html {
-  font-size: 62.5%;
-
-  @media (--phone) {
-    font-size: 30%;
-  }
-
-  @media (--tablet) {
-    font-size: 50%;
-  }
+/*
+ *   font-size: 62.5%;
+ * 
+ *   @media (--phone) {
+ *     font-size: 30%;
+ *   }
+ * 
+ *   @media (--tablet) {
+ *     font-size: 50%;
+ *   }
+ */
 }
 
 body {
