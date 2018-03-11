@@ -40,11 +40,23 @@ export default () => (
       </section>
       <section className="story">
         <h3 style={{ fontSize: '28.8px', color: 'white' }}>Our Story</h3>
-        <p style={{ fontSize: '16.8px', color: 'white' }}>
+        <p
+          style={{
+            fontSize: '16.8px',
+            color: 'white',
+            paddingBottom: '14.5px'
+          }}
+        >
           We were both talked into going to a speed dating event hosted by some
           fraternities and sororities in NYC at Katra. You all remember Katra….
         </p>
-        <p style={{ fontSize: '16.8px', color: 'white' }}>
+        <p
+          style={{
+            fontSize: '16.8px',
+            color: 'white',
+            paddingBottom: '14.5px'
+          }}
+        >
           Tricia came early to meet her friend Marie then realized what the day
           was going to become. She’d been speed dating before, normally you have
           to pre-register to keep the numbers even. This one was different and
@@ -52,11 +64,23 @@ export default () => (
           was standing up walking past the prospects and Tricia was not having
           that so she did not participate. But she did notice one person…
         </p>
-        <p style={{ fontSize: '16.8px', color: 'white' }}>
+        <p
+          style={{
+            fontSize: '16.8px',
+            color: 'white',
+            paddingBottom: '14.5px'
+          }}
+        >
           Tricia kept herself to the bar with drinks and the first time she ever
           had Fritay. She was in love!! With the fritay that is…
         </p>
-        <p style={{ fontSize: '16.8px', color: 'white' }}>
+        <p
+          style={{
+            fontSize: '16.8px',
+            color: 'white',
+            paddingBottom: '14.5px'
+          }}
+        >
           Marie, Tricia’s dental school classment, went to NJIT with Noel and
           introduced the two. Hiwotie went to a hackathon and met Noel and also
           introduced the two…again (he likes to take credit for us meeting)
