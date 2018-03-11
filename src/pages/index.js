@@ -39,7 +39,15 @@ export default () => (
         </div>
       </section>
       <section className="story">
-        <h3 style={{ fontSize: '28.8px', color: 'white' }}>Our Story</h3>
+        <h3
+          style={{
+            fontSize: '28.8px',
+            color: 'white',
+            paddingBottom: '14.5px'
+          }}
+        >
+          Our Story
+        </h3>
         <p
           style={{
             fontSize: '16.8px',
