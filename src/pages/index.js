@@ -25,7 +25,7 @@ export default () => (
         />
         <div className="details1">
           <div>
-            <h3>pleace join us for our wedding celebration on</h3>
+            <h3>please join us for our wedding celebration on</h3>
           </div>
           <time
             datetime="2018-09-08T11:00"
