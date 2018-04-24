@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from '../Divider';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer>
     <Divider />
   </footer>
 );

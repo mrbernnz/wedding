@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Divider = () => <div className="divider" />;
+const Divider = () => <div />;
 
 export default Divider;
