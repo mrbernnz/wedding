@@ -166,6 +166,5 @@ export default () => (
         </p>
       </Section>
       */}
-    </Container>
-  </div>
+  </Container>
 );
