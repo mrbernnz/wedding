@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Nav from '../components/NavBar';
 
+import { media } from '../utils/styles';
 import image from '../images/Save The Date/_ROZ6950.jpg';
 
 const Container = styled.main``;
@@ -20,15 +21,13 @@ const Header = styled.header`
   margin: 0 auto;
   max-width: 1170px;
 
-  @media (min-width: 544px) {
+  ${media.handheld`
     background-size: 1200px auto, auto;
     padding: 30px 0;
-  }
-
-  @media (min-width: 768px) {
+  `} ${media.tablet`
     background-size: 1600px auto, auto;
     padding: 50px 0;
-  }
+  `};
 `;
 
 const Name = styled.h1`
@@ -47,17 +46,18 @@ const Name = styled.h1`
     margin-top: 3px;
   }
 
-  @media (min-width: 544px) {
+
+  ${media.handheld`
     font-size: 54px;
-  }
+  `}
 
-  @media (min-width: 768px) {
+  ${media.tablet`
     font-size: 63px;
-  }
+  `}
 
-  @media (min-width: 992px) {
+  ${media.desktop`
     font-size: 72px;
-  }
+  `}
 `;
 
 const Span = styled.span`
