@@ -1,5 +1,50 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  font-family: 'Lulo Clean One Bold';
+  font-weight: 400;
+  font-style: normal;
+  line-heigh: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin: 0 auto 30px;
+  background-color: transparent;
+`;
+
+const NavBarList = styled.div`
+  position: relative;
+`;
+
+const Nav = styled.nav`
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+`;
+
+const List = styled.ul`
+  margin: 0;
+  list-style: none;
+
+  @media (min-width: 544px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    & li {
+      margin: 0 15px;
+      padding: 0;
+
+      & a {
+        color: rgb(196, 196, 196);
+        text-decoration: none;
+      }
+    }
+  }
+`;
 
 export default () => (
   <div styles={{ marginBottom: '30px' }}>
