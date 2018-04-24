@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { TypographyStyle } from 'react-typography';
-import typography from '../util/typography';
-
-import '../font.css';
+import styled from 'styled-components';
 
 import '../font.css';
 

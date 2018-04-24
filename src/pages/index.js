@@ -1,6 +1,83 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import image from '../images/Save The Date/_ROZ6950.jpg';
+
+const Container = styled.main``;
+
+const Header = styled.header`
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: normal;
+  text-align: center;
+  background-color: transparent;
+  background-image: none, none;
+  background-position: center center, center top;
+  background-repeat: no-repeat, repeat;
+  padding: 25px 0;
+  margin: 0 auto;
+  max-width: 1170px;
+
+  @media (min-width: 544px) {
+    background-size: 1200px auto, auto;
+    padding: 30px 0;
+  }
+
+  @media (min-width: 768px) {
+    background-size: 1600px auto, auto;
+    padding: 50px 0;
+  }
+`;
+
+const Name = styled.h1`
+  font-family: 'Hijrnotes Regular';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  font-size: 36px;
+  margin: 0;
+
+  &:first-child {
+    margin-bottom: 37px;
+  }
+
+  &:last-child {
+    margin-top: 3px;
+  }
+
+  @media (min-width: 544px) {
+    font-size: 54px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 63px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 72px;
+  }
+`;
+
+const Span = styled.span`
+  font-family: 'Lulo Clean One Bold';
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: normal;
+`;
+
+const Section = styled.section`
+  padding: 0 15px;
+`;
+
+const Portrait = styled.img`
+  display: block;
+  width: '100%',
+  marginBottom: '30px',
+  boxSizing: ' border-box',
+  border: '8px solid rgb(255, 255, 255)',
+  boxShadow: 'rgba(0,0,0, 0.25) 0px 1px 4px'
+`;
 
 export default () => (
   <div>
