@@ -186,31 +186,29 @@ const NavLink = styled(Link)`
   `};
 `;
 
+const ListItem = props => (
+  <NavItem>
+    <NavLink to={props.path}>{props.link}</NavLink>
+  </NavItem>
+);
+
 export default () => (
   <Container>
-    <NavBarList>
-      <Nav>
-        <List>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/rsvp">Rsvp</Link>
-          </li>
-          <li>
-            <Link to="/photos">Photos</Link>
-          </li>
-          <li>
-            <Link to="/events">Events</Link>
-          </li>
-          <li>
-            <Link to="/travel">Travel</Link>
-          </li>
-          <li>
-            <Link to="/registry">Gift Registry</Link>
-          </li>
-        </List>
-      </Nav>
-    </NavBarList>
+    <StyledInput id="navi-toggle" />
+    <StyledButton htmlFor="navi-toggle">
+      <Icon />
+    </StyledButton>
+    <NavBackground>&nbsp;</NavBackground>
+
+    <Nav>
+      <List>
+        <ListItem path="/" link="Home" />
+        <ListItem path="/rsvp" link="Rsvp" />
+        <ListItem path="/photos" link="Photos" />
+        <ListItem path="/events" link="Events" />
+        <ListItem path="/travel" link="Travel" />
+        <ListItem path="/registry" link="Registry" />
+      </List>
+    </Nav>
   </Container>
 );
