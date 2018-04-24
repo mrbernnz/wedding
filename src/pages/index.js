@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Nav from '../components/NavBar';
+
 import image from '../images/Save The Date/_ROZ6950.jpg';
 
 const Container = styled.main``;
@@ -80,14 +82,14 @@ const Portrait = styled.img`
 `;
 
 export default () => (
-  <div>
-    <Container>
-      <Header>
-        <Name>Tricia Quartey</Name>
-        <Span>and</Span>
-        <Name>Noel Sagaille</Name>
-      </Header>
-      {/*
+  <Container>
+    <Header>
+      <Name>Tricia Quartey</Name>
+      <Span>and</Span>
+      <Name>Noel Sagaille</Name>
+    </Header>
+    <Nav />
+    {/*
       <Section>
         <Portrait src={image} alt="Noel and Tricia" />
         <div className="details1">
