@@ -4,7 +4,20 @@ import Helmet from 'react-helmet';
 import { TypographyStyle } from 'react-typography';
 import typography from '../util/typography';
 
-import Footer from '../components/Footer';
+import '../font.css';
+
+import '../font.css';
+
+const Container = styled.div`
+  box-sizing: border-box;
+  font-family: 'Brandon Grotesque Regular';
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 16.8px;
+  color: #929492;
+  font-variant-ligatures: none;
+`;
 
 const TemplateWrapper = ({ children }) => (
   <div>

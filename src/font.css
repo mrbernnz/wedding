@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Hijrnotes Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Hijrnotes.ttf');
+}
+
+@font-face {
+  font-family: 'Lulo Clean One Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Lulo Clean One Bold.otf');
+}
+
+@font-face {
+  font-family: 'Brandon Grotesque Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/brandon-grotesque-light-58a8a4b38001d.woff');
+}
