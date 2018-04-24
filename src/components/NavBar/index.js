@@ -67,7 +67,7 @@ const StyledButton = styled.label`
     left: 0.5rem;
     border-radius: 50%;
     z-index: 2000;
-    box-shadow: 0 1rem 3rem rgba(0,0,0, 0.1);
+    // box-shadow: 0 1rem 3rem rgba(0,0,0, 0.1);
     text-align: center;
   `};
 `;
