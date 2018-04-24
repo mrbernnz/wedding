@@ -1,9 +1,0 @@
-:root {
-  --color-red: #781826;
-  --color-white: #fff;
-
-  --default-font-size: 1.6rem;
-
-  @custom-media --phone (min-width: 34em);
-  @custom-media --tablet (min-width: 48em);
-}

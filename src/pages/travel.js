@@ -1,9 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
 
 const TravelPage = () => (
   <div>
-    <Header />
     <section>
       <h2>Travel</h2>
       <img />

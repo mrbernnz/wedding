@@ -1,15 +1,9 @@
 import React from 'react';
 
-import MastHead from '../components/MastHead';
-import SingleRose from '../components/SingleRose';
 import image from '../images/Save The Date/_ROZ6950.jpg';
-import rose from '../images/root_SmallGraphic_QPZd0e5.png';
-
-import '../sass/pages/index.scss';
 
 export default () => (
   <div>
-    <MastHead />
     <main className="indexMain">
       <section>
         <img
@@ -33,9 +27,6 @@ export default () => (
           >
             September 8, 2018
           </time>
-          <div className="roseImage">
-            <SingleRose />
-          </div>
         </div>
       </section>
       <section className="story">

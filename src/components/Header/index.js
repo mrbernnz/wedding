@@ -2,8 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import Divider from '../Divider';
-import SingleRose from '../SingleRose';
-import smallRose from '../../images/root_SmallGraphic_QPZd0e5.png';
 
 const Header = () => (
   <div className="header">

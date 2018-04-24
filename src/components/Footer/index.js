@@ -1,6 +1,5 @@
 import React from 'react';
 import Divider from '../Divider';
-import './index.scss';
 
 const Footer = () => (
   <footer className="footer">

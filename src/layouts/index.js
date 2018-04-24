@@ -5,7 +5,6 @@ import { TypographyStyle } from 'react-typography';
 import typography from '../util/typography';
 
 import Footer from '../components/Footer';
-import '../sass/main.scss';
 
 const TemplateWrapper = ({ children }) => (
   <div>
