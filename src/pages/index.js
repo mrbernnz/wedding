@@ -81,19 +81,15 @@ const Portrait = styled.img`
 
 export default () => (
   <div>
-    <main className="indexMain">
-      <section>
-        <img
-          src={image}
-          style={{
-            display: 'block',
-            width: '100%',
-            marginBottom: '30px',
-            boxSizing: ' border-box',
-            border: '8px solid rgb(255, 255, 255)',
-            boxShadow: 'rgba(0,0,0, 0.25) 0px 1px 4px'
-          }}
-        />
+    <Container>
+      <Header>
+        <Name>Tricia Quartey</Name>
+        <Span>and</Span>
+        <Name>Noel Sagaille</Name>
+      </Header>
+      {/*
+      <Section>
+        <Portrait src={image} alt="Noel and Tricia" />
         <div className="details1">
           <div>
             <h3>please join us for our wedding celebration on</h3>
@@ -105,8 +101,8 @@ export default () => (
             September 8, 2018
           </time>
         </div>
-      </section>
-      <section className="story">
+      </Section>
+      <Section>
         <h3
           style={{
             fontSize: '28.8px',
@@ -166,7 +162,8 @@ export default () => (
           proposed in Italy at the Blue Grotto a cave displaying some of the
           bluest waters.
         </p>
-      </section>
-    </main>
+      </Section>
+      */}
+    </Container>
   </div>
 );
