@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import { mediaForNav } from '../../utils/styles';
 
 const Container = styled.div`
+  position: sticky;
+  top: 0;
   font-family: 'Lulo Clean One Bold';
   font-size: 14px;
   font-weight: 400;
@@ -14,6 +16,10 @@ const Container = styled.div`
   letter-spacing: 2px;
   margin: 0 auto 30px;
   background-color: transparent;
+
+  .graybck {
+    background-color: gray;
+  }
 
   input:checked ~ div {
     transform: scale(80);
@@ -192,23 +198,59 @@ const ListItem = props => (
   </NavItem>
 );
 
-export default () => (
-  <Container>
-    <StyledInput id="navi-toggle" />
-    <StyledButton htmlFor="navi-toggle">
-      <Icon />
-    </StyledButton>
-    <NavBackground>&nbsp;</NavBackground>
+const debounce = (fn, wait) => {
+  let timeout = null;
 
-    <Nav>
-      <List>
-        <ListItem path="/" link="Home" />
-        <ListItem path="/rsvp" link="Rsvp" />
-        <ListItem path="/photos" link="Photos" />
-        <ListItem path="/events" link="Events" />
-        <ListItem path="/travel" link="Travel" />
-        <ListItem path="/registry" link="Registry" />
-      </List>
-    </Nav>
-  </Container>
-);
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, args), wait);
+  };
+};
+
+export default class NavBar extends Component {
+  state = {
+    navPosition: false
+  };
+
+  componentDidMount() {
+    return window.addEventListener('scroll', debounce(this.handleScroll, 32));
+  }
+
+  componentWillUnmount() {
+    return window.removeEventListener(
+      'scroll',
+      debounce(this.handleScroll, 32)
+    );
+  }
+
+  handleScroll = () => {
+    window.scrollY >= 312
+      ? this.setState({ navPosition: true })
+      : this.setState({ navPosition: false });
+  };
+
+  render() {
+    const isTop = this.state.navPosition;
+
+    return (
+      <Container>
+        <StyledInput id="navi-toggle" />
+        <StyledButton htmlFor="navi-toggle">
+          <Icon />
+        </StyledButton>
+        <NavBackground>&nbsp;</NavBackground>
+
+        <Nav className={isTop ? 'graybck' : ''}>
+          <List>
+            <ListItem path="/" link="Home" />
+            <ListItem path="/rsvp" link="Rsvp" />
+            <ListItem path="/photos" link="Photos" />
+            <ListItem path="/events" link="Events" />
+            <ListItem path="/travel" link="Travel" />
+            <ListItem path="/registry" link="Registry" />
+          </List>
+        </Nav>
+      </Container>
+    );
+  }
+}
