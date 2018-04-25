@@ -66,7 +66,7 @@ const PhotoPage = () => (
     <MastHead />
     <section>
       <Title>Photos</Title>
-      <SmallDivider src={line} alt="line curve" />
+      <SmallDivider src={line} alt="curved line" />
       <Row>
         <Column>
           <Img src={pic1} />
