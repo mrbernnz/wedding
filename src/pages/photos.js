@@ -66,7 +66,6 @@ const PhotoPage = () => (
   <div>
     <MastHead />
     <NavBar />
-    <hr />
     <section>
       <Title>Photos</Title>
       <SmallDivider src={line} alt="line curve" />
