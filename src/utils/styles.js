@@ -11,7 +11,7 @@ export const media = Object.keys(sizes).reduce((hash, screen) => {
   const emSize = sizes[screen] / 16;
 
   hash[screen] = (...args) => css`
-    @media (min-width: ${emSize}em) {
+    @media (min-width: ${emSize}rem) {
       ${css(...args)};
     }
   `;

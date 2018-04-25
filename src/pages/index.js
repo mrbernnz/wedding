@@ -101,12 +101,10 @@ const Date = styled.time`
 
   ${media.handheld`
     font-size: 25.2px;
-  `}
-
+  `} 
   ${media.tablet`
     font-size: 28.8px;
-  `}
-
+  `} 
   ${media.desktop`
     font-size: 32.4px;
   `}
@@ -151,6 +149,7 @@ const StoryDiv = styled.div`
     margin: 0 8.333%;
   `};
 `;
+
 export default () => (
   <Container>
     <Header>
