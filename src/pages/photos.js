@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../utils/styles';
-import NavBar from '../components/NavBar';
 import MastHead from '../components/Masthead';
 
 import line from '../images/root_SmallDivider.png';
@@ -65,7 +64,6 @@ const Img = styled.img`
 const PhotoPage = () => (
   <div>
     <MastHead />
-    <NavBar />
     <section>
       <Title>Photos</Title>
       <SmallDivider src={line} alt="line curve" />
