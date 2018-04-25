@@ -6,12 +6,12 @@ import { mediaForNav } from '../../utils/styles';
 
 const Container = styled.div`
   font-family: 'Lulo Clean One Bold';
+  font-size: 14px;
   font-weight: 400;
   font-style: normal;
-  line-heigh: 1;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 14px;
   margin: 0 auto 30px;
   background-color: transparent;
 
@@ -63,8 +63,8 @@ const StyledButton = styled.label`
     height: 3rem;
     width: 3rem;
     position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.6rem;
+    left: 0.8rem;
     border-radius: 50%;
     z-index: 2000;
     // box-shadow: 0 1rem 3rem rgba(0,0,0, 0.1);
@@ -80,7 +80,7 @@ const Icon = styled.span`
   &,
   &::before,
   &::after {
-    width: 1.5rem;
+    width: 1.3rem;
     height: 2px;
     background-color: grey;
     display: inline-block;
