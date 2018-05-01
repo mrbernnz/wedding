@@ -246,7 +246,6 @@ export default class NavBar extends Component {
             <ListItem path="/rsvp" link="Rsvp" />
             <ListItem path="/photos" link="Photos" />
             <ListItem path="/events" link="Events" />
-            <ListItem path="/travel" link="Travel" />
           </List>
         </Nav>
       </Container>
