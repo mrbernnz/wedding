@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
@@ -11,40 +11,72 @@ const SmallDivider = styled.img`
   margin: 0 auto 30px;
 `;
 
-const RsvpPage = () => (
-  <div>
-    <MastHead />
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <h2 style={{ fontFamily: 'Lulu Clean One Bold' }}>You are invited</h2>
-      <SmallDivider src={line} alt="curved line" />
-      <div style={{ marginBottom: '80px' }}>
-        <div style={{ maxWidth: '1170px' }}>
-          <div>
-            <div>
+class Rsvp extends Component {
+  state = {
+    name: ''
+  };
+
+  changeHandler = e => {
+    this.setState({ name: e.target.value });
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+
+    console.log(this.state.name);
+    this.setState({ name: '' });
+  };
+
+  render() {
+    const { name } = this.state;
+
+    return (
+      <div>
+        <MastHead />
+        <section
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontFamily: 'Lulu Clean One Bold'
+          }}
+        >
+          <h2>You are invited</h2>
+          <SmallDivider src={line} alt="curved line" />
+          <div style={{ marginBottom: '80px' }}>
+            <div style={{ maxWidth: '1170px' }}>
               <div>
                 <div>
-                  <h3 style={{ fontFamily: 'Lulu Clean One Bold' }}>
-                    Enter the name on your invitation
-                  </h3>
-                  <form>
-                    <input style={{ marginBottom: '20px', width: '100%' }} />
-                    <button style={{ width: '100%' }}>Find RSVP</button>
-                  </form>
+                  <div>
+                    <div>
+                      <h3>Enter the name on your invitation</h3>
+                      <form onSubmit={this.submitHandler}>
+                        <input
+                          type="text"
+                          placeholder="Add Your Name"
+                          value={name}
+                          onChange={this.changeHandler}
+                          style={{
+                            marginBottom: '20px',
+                            width: '100%',
+                            textAlign: 'center'
+                          }}
+                        />
+                        <button type="submit" style={{ width: '100%' }}>
+                          Find RSVP
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
-  </div>
-);
+    );
+  }
+}
 
-export default RsvpPage;
+export default Rsvp;
