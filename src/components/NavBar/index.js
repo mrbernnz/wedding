@@ -247,7 +247,6 @@ export default class NavBar extends Component {
             <ListItem path="/photos" link="Photos" />
             <ListItem path="/events" link="Events" />
             <ListItem path="/travel" link="Travel" />
-            <ListItem path="/registry" link="Registry" />
           </List>
         </Nav>
       </Container>
