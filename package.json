@@ -1,33 +1,30 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "wedding-app",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^1.9.202",
-    "gatsby-link": "^1.6.37",
-    "gatsby-plugin-react-helmet": "^2.0.5",
-    "gatsby-plugin-styled-components": "2.0.11",
-    "gatsby-source-filesystem": "1.5.20",
-    "react-helmet": "^5.2.0",
-    "react-typography": "0.16.13",
-    "styled-components": "3.2.6",
-    "typography": "0.16.6",
-    "typography-breakpoint-constants": "0.15.10"
-  },
-  "devDependencies": {
-    "prettier": "^1.10.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
+  "private": true,
+  "author": "Noel Sagaille <noel.sagaille@gmail.com>",
   "scripts": {
     "build": "gatsby build",
-    "heroku-postbuild": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "npm run build",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "gatsby": "latest",
+    "gatsby-link": "1.6.44",
+    "gatsby-plugin-react-helmet": "2.0.11",
+    "gatsby-plugin-styled-components": "2.0.11",
+    "jss": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-helmet": "5.2.0",
+    "react-jss": "latest",
+    "react-modal": "3.4.5",
+    "styled-components": "3.3.2"
+  },
+  "devDependencies": {
+    "prettier": "1.13.5"
   }
 }
