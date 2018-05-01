@@ -7,6 +7,7 @@ import MastHead from '../components/Masthead';
 import line from '../images/root_SmallDivider.png';
 
 const Title = styled.h2`
+  font-family: 'Lulu Clean One Bold';
   text-align: center;
 `;
 
@@ -17,6 +18,26 @@ const SmallDivider = styled.img`
   margin: 0 auto 30px;
 `;
 
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 15px;
+  text-align: left;
+`;
+
+const Anchor = styled.a`
+  text-transform: uppercase;
+  color: rgb(146, 148, 146);
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: transparent;
+`;
+
 const EventsPage = () => (
   <div>
     <MastHead />
@@ -24,30 +45,41 @@ const EventsPage = () => (
       <Title>Events</Title>
       <SmallDivider src={line} alt="curved line" />
       <div style={{ marginBottom: '80px' }}>
-        <div
-          style={{ margin: '0 auto', maxWidth: '1170px', textAlign: 'center' }}
-        >
+        <div style={{ margin: '0 auto', maxWidth: '1170px' }}>
           <div style={{ margin: '0 8.3334%' }}>
             <div style={{ display: 'flex' }}>
-              <div style={{ padding: '0 15px', flexGrow: '1', flexBasis: '0' }}>
-                <div>
+              <InfoContainer>
+                <div style={{ marginBottom: '30px' }}>
                   <div>
-                    <h3>Wedding Ceremony</h3>
+                    <h3 style={{ fontFamily: 'Lulu Clean One Bold' }}>
+                      Wedding Ceremony
+                    </h3>
                   </div>
                   <div>
                     <p>
-                      11:00 AM, September 8, 2018<br />The Chophouse<br />4
-                      Lakeview Drive South<br />Gibbsboro, NJ 08026
+                      11:00 AM, September 8, 2018<br />The Chophouse
+                      <br />
+                      4 Lakeview Drive South<br />Gibbsboro, NJ 08026
                     </p>
+                  </div>
+                  <div style={{ marginTop: '40px' }}>
+                    <Anchor href="https://maps.google.com/maps?saddr=Current+Location&daddr=4 Lakeview Drive South Gibbsboro, NJ 08026">
+                      Get Directions
+                    </Anchor>
+                  </div>
+                </div>
+                <div>
+                  <div style={{ width: '202px' }}>
+                    <h3 style={{ fontFamily: 'Lulu Clean One Bold' }}>
+                      Reception
+                    </h3>
+                  </div>
+                  <div>
+                    <p>To Follow Ceremony</p>
                   </div>
                   <div />
                 </div>
-                <div>
-                  <div />
-                  <div />
-                  <div />
-                </div>
-              </div>
+              </InfoContainer>
             </div>
           </div>
         </div>
