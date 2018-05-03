@@ -13,22 +13,33 @@ const SmallDivider = styled.img`
 
 class Rsvp extends Component {
   state = {
-    name: ''
+    term: '',
+    names: []
   };
 
   changeHandler = e => {
-    this.setState({ name: e.target.value });
+    this.setState({ term: e.target.value });
   };
 
   submitHandler = e => {
     e.preventDefault();
 
-    console.log(this.state.name);
-    this.setState({ name: '' });
+    this.fetchNames(this.state.term).then(names => this.setState({ names }));
+    this.setState({ term: '' });
+  };
+
+  fetchNames = async term => {
+    const url = `https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps?name=${term}`;
+
+    const res = await fetch(url),
+      json = await res.json(),
+      data = await json.data;
+
+    return data;
   };
 
   render() {
-    const { name } = this.state;
+    const { term } = this.state;
 
     return (
       <div>
@@ -53,9 +64,10 @@ class Rsvp extends Component {
                       <h3>Enter the name on your invitation</h3>
                       <form onSubmit={this.submitHandler}>
                         <input
-                          type="text"
-                          placeholder="Add Your Name"
-                          value={name}
+                          type="search"
+                          name="name"
+                          placeholder="e.g. Jon and Jane Doe"
+                          value={term}
                           onChange={this.changeHandler}
                           style={{
                             marginBottom: '20px',
