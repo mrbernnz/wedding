@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
@@ -11,11 +12,27 @@ const SmallDivider = styled.img`
   margin: 0 auto 30px;
 `;
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
+
 class Rsvp extends Component {
   state = {
     term: '',
-    names: []
+    people: [],
+    modalIsOpen: false
   };
+
+  openModal = () => this.setState({ modalIsOpen: true });
+
+  closeModal = () => this.setState({ modalIsOpen: false });
 
   changeHandler = e => {
     this.setState({ term: e.target.value });
@@ -24,7 +41,7 @@ class Rsvp extends Component {
   submitHandler = e => {
     e.preventDefault();
 
-    this.fetchNames(this.state.term).then(names => this.setState({ names }));
+    this.fetchNames(this.state.term).then(people => this.setState({ people }));
     this.setState({ term: '' });
   };
 
@@ -39,7 +56,7 @@ class Rsvp extends Component {
   };
 
   render() {
-    const { term } = this.state;
+    const { term, modalIsOpen } = this.state;
 
     return (
       <div>
@@ -75,7 +92,11 @@ class Rsvp extends Component {
                             textAlign: 'center'
                           }}
                         />
-                        <button type="submit" style={{ width: '100%' }}>
+                        <button
+                          type="submit"
+                          style={{ width: '100%' }}
+                          onClick={this.openModal}
+                        >
                           Find RSVP
                         </button>
                       </form>
@@ -85,6 +106,24 @@ class Rsvp extends Component {
               </div>
             </div>
           </div>
+          <Modal
+            isOpen={modalIsOpen}
+            close={this.closeModal}
+            style={customStyles}
+            contentLabel="Wedding"
+          >
+            <p>
+              {this.state.people.length > 0 ? this.state.people[0].name : ''}
+            </p>
+            <form>
+              <select>
+                <option>1</option>
+                <option>2</option>
+              </select>
+              <button type="submit">Submit</button>
+              <button onClick={this.closeModal}>X</button>
+            </form>
+          </Modal>
         </section>
       </div>
     );
