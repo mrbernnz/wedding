@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import MastHead from '../components/Masthead';
 import line from '../images/root_SmallDivider.png';
 
+Modal.setAppElement('#___gatsby');
+
 const SmallDivider = styled.img`
   display: block;
   height: 50px;
