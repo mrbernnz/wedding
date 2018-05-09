@@ -27,28 +27,17 @@ const customStyles = {
 
 class Rsvp extends Component {
   state = {
-    term: '',
-    people: [],
-    modalIsOpen: false
+    value: '',
+    invitee: {},
+    modalIsOpen: false,
   };
-
-  openModal = () => this.setState({ modalIsOpen: true });
-
-  closeModal = () => this.setState({ modalIsOpen: false });
 
   changeHandler = e => {
-    this.setState({ term: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = e => {
-    e.preventDefault();
-
-    this.fetchNames(this.state.term).then(people => this.setState({ people }));
-    this.setState({ term: '' });
-  };
-
-  fetchNames = async term => {
-    const url = `https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps?name=${term}`;
+  fetchNames = async value => {
+    const url = `https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps?code=${value}`;
 
     const res = await fetch(url),
       json = await res.json(),
@@ -57,8 +46,56 @@ class Rsvp extends Component {
     return data;
   };
 
+  submitCodeHandler = e => {
+    e.preventDefault();
+
+    this.fetchNames(this.state.value).then(invitee =>
+      this.setState({ invitee })
+    );
+
+    this.setState({ value: '' });
+  };
+
+  submitRsvpHandler = e => {
+    e.preventDefault();
+    let v = [];
+    for (const prop of new FormData(e.target).values()) {
+      v.push(prop);
+    }
+    alert(`A invite submission\n${v.join('\n')}`);
+
+    const url =
+      'https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps';
+
+    const res = fetch(url, { method: 'POST', body: new FormData(e.target) });
+  };
+
+  openModal = () => this.setState({ modalIsOpen: true });
+
+  closeModal = () => this.setState({ modalIsOpen: false });
+
+  incrementGuestNumber = () => {
+    const num = document.querySelector('#number');
+    const max = Number(num.max);
+    let value = Number(num.value);
+
+    value = Number.isNaN(value) ? 0 : value;
+    value < max ? value++ : num.max;
+    document.querySelector('#number').value = value;
+  };
+
+  decrementGuestNumber = () => {
+    const num = document.querySelector('#number');
+    const min = Number(num.min);
+    let value = Number(num.value);
+
+    value = Number.isNaN(value) ? 0 : value;
+    value > min ? value-- : num.min;
+    document.querySelector('#number').value = value;
+  };
+
   render() {
-    const { term, modalIsOpen } = this.state;
+    const { value, invitee, modalIsOpen } = this.state;
 
     return (
       <div>
@@ -112,21 +149,133 @@ class Rsvp extends Component {
           </div>
           <Modal
             isOpen={modalIsOpen}
-            close={this.closeModal}
             style={customStyles}
             contentLabel="Wedding"
           >
-            <p>
-              {this.state.people.length > 0 ? this.state.people[0].name : ''}
-            </p>
-            <form>
-              <select>
-                <option>1</option>
-                <option>2</option>
-              </select>
-              <button type="submit">Submit</button>
-              <button onClick={this.closeModal}>X</button>
-            </form>
+            {invitee.length > 0 ? (
+              invitee.map(invite => (
+                <div key={invite.code}>
+                  <h2>{invite.name}</h2>
+                  <p>Wedding Party: {invite.party}</p>
+                  <form onSubmit={this.submitRsvpHandler}>
+                    <input
+                      id="rsvpYes"
+                      type="radio"
+                      name="rsvp"
+                      value="yes"
+                      checked={guestsIsOpen}
+                      onChange={this.openGuests}
+                    />
+                    <label htmlFor="rsvpYes">Coming</label>
+                    <input
+                      id="rsvpNo"
+                      type="radio"
+                      name="rsvp"
+                      value="no"
+                      onChange={this.closeGuests}
+                    />
+                    <label htmlFor="rsvpNo">Not Coming</label>
+                    <Collapse isOpened={guestsIsOpen}>
+                      <label htmlFor="number">How many are coming?</label>
+                      <input
+                        id="number"
+                        type="number"
+                        name="guests"
+                        value="0"
+                        onChange={this.changeHandler}
+                        min="0"
+                        max="2"
+                        maxLength="1"
+                        step="1"
+                      />
+                      <button type="button" onClick={this.incrementGuestNumber}>
+                        +
+                      </button>
+                      <button type="button" onClick={this.decrementGuestNumber}>
+                        -
+                      </button>
+                      {invite.guests > 1 ? (
+                        <div>
+                          <p>Please select an entrees for</p>
+                          <label htmlFor="entree1">
+                            {invite.name.split(' ')[0]}
+                          </label>
+                          <select
+                            id="entree1"
+                            name="entree1"
+                            defaultValue="Please Select"
+                          >
+                            <option disabled hidden>
+                              Please Select
+                            </option>
+                            <option value="Grilled Salmon">
+                              Grilled Salmon
+                            </option>
+                            <option value="Seasonal Vegetarian Scampi">
+                              Seasonal Vegetarian Scampi
+                            </option>
+                            <option value="Kona Crusted Filet Tips">
+                              Kona Crusted Filet Tips
+                            </option>
+                          </select>
+                          <p>And</p>
+                          <label htmlFor="entree2">
+                            {invite.name.split(' ')[2]}
+                          </label>
+                          <select
+                            id="entree2"
+                            name="entree2"
+                            defaultValue="Please Select"
+                          >
+                            <option disabled hidden>
+                              Please Select
+                            </option>
+                            <option value="Grilled Salmon">
+                              Grilled Salmon
+                            </option>
+                            <option value="Seasonal Vegetarian Scampi">
+                              Seasonal Vegetarian Scampi
+                            </option>
+                            <option value="Kona Crusted Filet Tips">
+                              Kona Crusted Filet Tips
+                            </option>
+                          </select>
+                        </div>
+                      ) : (
+                        <div>
+                          <label htmlFor="entree1">
+                            Please select an entree for{' '}
+                            {invite.name.split(' ')[0]}
+                          </label>
+                          <select
+                            id="entree1"
+                            name="entree1"
+                            defaultValue="Please Select"
+                          >
+                            <option disabled hidden>
+                              Please Select
+                            </option>
+                            <option value="Grilled Salmon">
+                              Grilled Salmon
+                            </option>
+                            <option value="Seasonal Vegetarian Scampi">
+                              Seasonal Vegetarian Scampi
+                            </option>
+                            <option value="Kona Crusted Filet Tips">
+                              Kona Crusted Filet Tips
+                            </option>
+                          </select>
+                        </div>
+                      )}
+                    </Collapse>
+                    <button>Submit</button>
+                  </form>
+                </div>
+              ))
+            ) : (
+              <p>The code you entered is incorrect. Please try again.</p>
+            )}
+            <button onClick={this.closeModal}>X</button>
           </Modal>
         </section>
       </div>
