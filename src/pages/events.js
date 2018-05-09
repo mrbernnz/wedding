@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { media } from '../utils/styles';
 import MastHead from '../components/Masthead';
+import NavBar from '../components/NavBar';
+import Divider from '../components/Divider';
 
 import line from '../images/root_SmallDivider.png';
 
@@ -41,6 +43,8 @@ const Anchor = styled.a`
 const EventsPage = () => (
   <div>
     <MastHead />
+    <NavBar />
+    <Divider />
     <section>
       <Title>Events</Title>
       <SmallDivider src={line} alt="curved line" />

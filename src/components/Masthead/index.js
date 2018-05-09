@@ -71,13 +71,9 @@ const SmallGraphic = styled.img`
 `;
 
 export default () => (
-  <div>
-    <Container>
-      <Name>Tricia Quartey</Name>
-      <SmallGraphic src={smallGraphic} alt="Small Graphic" />
-      <Name>Noel Sagaille</Name>
-    </Container>
-    <NavBar />
-    <Divider />
-  </div>
+  <Container>
+    <Name>Tricia Quartey</Name>
+    <SmallGraphic src={smallGraphic} alt="Small Graphic" />
+    <Name>Noel Sagaille</Name>
+  </Container>
 );

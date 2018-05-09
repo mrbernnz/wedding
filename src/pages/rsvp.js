@@ -4,6 +4,8 @@ import { Collapse } from 'react-collapse';
 import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
+import NavBar from '../components/NavBar';
+import Divider from '../components/Divider';
 import line from '../images/root_SmallDivider.png';
 
 Modal.setAppElement('#___gatsby');
@@ -108,6 +110,8 @@ class Rsvp extends Component {
     return (
       <div>
         <MastHead />
+        <NavBar />
+        <Divider />
         <section
           style={{
             display: 'flex',
