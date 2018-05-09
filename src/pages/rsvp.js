@@ -98,7 +98,6 @@ class Rsvp extends Component {
                           }}
                         />
                         <button
-                          type="submit"
                           style={{ width: '100%' }}
                           onClick={this.openModal}
                         >
