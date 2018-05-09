@@ -80,13 +80,16 @@ class Rsvp extends Component {
                 <div>
                   <div>
                     <div>
-                      <h3>Enter the name on your invitation</h3>
-                      <form onSubmit={this.submitHandler}>
+                      <form onSubmit={this.submitCodeHandler}>
+                        <label htmlFor="invitationCode">
+                          Enter the code on your invitation
+                        </label>
                         <input
+                          id="invitationCode"
                           type="search"
-                          name="name"
-                          placeholder="e.g. Jon and Jane Doe"
-                          value={term}
+                          name="value"
+                          placeholder="e.g. 123abc"
+                          value={value}
                           onChange={this.changeHandler}
                           style={{
                             marginBottom: '20px',
