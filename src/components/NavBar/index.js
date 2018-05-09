@@ -72,8 +72,8 @@ const StyledButton = styled.label`
     top: 0.6rem;
     left: 0.8rem;
     border-radius: 50%;
-    z-index: 2000;
-    // box-shadow: 0 1rem 3rem rgba(0,0,0, 0.1);
+    z-index: 3000;
+    box-shadow: 0 1rem 3rem rgba(0,0,0, 0.1);
     text-align: center;
   `};
 `;
@@ -224,7 +224,7 @@ export default class NavBar extends Component {
   }
 
   handleScroll = () => {
-    window.scrollY >= 312
+    window.scrollY >= 300 && this.refs.nav
       ? this.setState({ navPosition: true })
       : this.setState({ navPosition: false });
   };
@@ -233,7 +233,7 @@ export default class NavBar extends Component {
     const isTop = this.state.navPosition;
 
     return (
-      <Container>
+      <Container ref="nav">
         <StyledInput id="navi-toggle" />
         <StyledButton htmlFor="navi-toggle">
           <Icon />

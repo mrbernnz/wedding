@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { media } from '../utils/styles';
 import MastHead from '../components/Masthead';
+import NavBar from '../components/NavBar';
+import Divider from '../components/Divider';
 
 import line from '../images/root_SmallDivider.png';
 import pic1 from '../images/Tricia-Noel_18_01.jpg';
@@ -64,6 +66,8 @@ const Img = styled.img`
 const PhotoPage = () => (
   <div>
     <MastHead />
+    <NavBar />
+    <Divider />
     <section>
       <Title>Photos</Title>
       <SmallDivider src={line} alt="curved line" />
