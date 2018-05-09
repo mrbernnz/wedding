@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import { Collapse } from 'react-collapse';
 import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
@@ -30,6 +31,7 @@ class Rsvp extends Component {
     value: '',
     invitee: {},
     modalIsOpen: false,
+    guestsIsOpen: false
   };
 
   changeHandler = e => {
@@ -74,6 +76,12 @@ class Rsvp extends Component {
 
   closeModal = () => this.setState({ modalIsOpen: false });
 
+  openGuests = ({ target: { checked } }) =>
+    this.setState({ guestsIsOpen: checked });
+
+  closeGuests = ({ target: { checked } }) =>
+    this.setState({ guestsIsOpen: !checked });
+
   incrementGuestNumber = () => {
     const num = document.querySelector('#number');
     const max = Number(num.max);
@@ -95,7 +103,7 @@ class Rsvp extends Component {
   };
 
   render() {
-    const { value, invitee, modalIsOpen } = this.state;
+    const { value, invitee, modalIsOpen, guestsIsOpen } = this.state;
 
     return (
       <div>
