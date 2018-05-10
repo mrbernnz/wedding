@@ -170,7 +170,7 @@ export default () => (
       </div>
     </Section>
     <StorySection>
-      <div style={{ margin: '0 auto', 'max-width': '1170px' }}>
+      <div style={{ margin: '0 auto', maxWidth: '1170px' }}>
         <StoryDiv>
           <Section>
             <StoryHeading>Our Story</StoryHeading>
