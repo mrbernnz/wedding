@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
+import Footer from '../components/Footer';
 import '../font.css';
 
 const Container = styled.div`
@@ -24,6 +25,7 @@ const TemplateWrapper = ({ children }) => (
       <meta name="keywords" content="wedding, noel sagaille, tricia quartey" />
     </Helmet>
     <Container>{children()}</Container>
+    <Footer />
   </div>
 );
 
