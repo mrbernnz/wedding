@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Nav from '../components/NavBar';
 
 import { media } from '../utils/styles';
-import image from '../images/Save The Date/_ROZ6950.jpg';
+import image from '../images/Tricia-Noel_18_04.jpg';
 
 const Container = styled.main``;
 
@@ -74,7 +74,7 @@ const Section = styled.section`
 
 const Portrait = styled.img`
   display: block;
-  object-fit: scale-down;
+  object-fit: contain;
   width: 50%;
   margin: 0 auto 30px;
   box-sizing: border-box;
