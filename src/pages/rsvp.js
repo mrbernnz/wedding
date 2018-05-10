@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Modal from 'react-modal';
-import { Collapse } from 'react-collapse';
 import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
 import NavBar from '../components/NavBar';
 import Divider from '../components/Divider';
-import line from '../images/root_SmallDivider.png';
+import Modal from '../components/Modal';
 
-Modal.setAppElement('#___gatsby');
+import line from '../images/root_SmallDivider.png';
 
 const SmallDivider = styled.img`
   display: block;
@@ -16,17 +14,6 @@ const SmallDivider = styled.img`
   width: 200px;
   margin: 0 auto 30px;
 `;
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
-};
 
 class Rsvp extends Component {
   state = {
@@ -160,145 +147,18 @@ class Rsvp extends Component {
             </div>
           </div>
           <Modal
-            isOpen={modalIsOpen}
-            style={customStyles}
-            contentLabel="Wedding"
-          >
-            {invitee.length > 0 ? (
-              invitee.map(invite => (
-                <div key={invite.code}>
-                  <p>Wedding Party: {invite.party}</p>
-                  <form onSubmit={this.submitRsvpHandler}>
-                    <h2>{invite.name}</h2>
-                    <fieldset>
-                      <legend>RSVP</legend>
-                      <input type="hidden" name="code" value={invite.code} />
-                      <input
-                        id="rsvpYes"
-                        type="radio"
-                        name="rsvp"
-                        value="yes"
-                        checked={guestsIsOpen}
-                        onChange={this.openGuests}
-                      />
-                      <label htmlFor="rsvpYes">Coming</label>
-                      <input
-                        id="rsvpNo"
-                        type="radio"
-                        name="rsvp"
-                        value="no"
-                        onChange={this.closeGuests}
-                      />
-                      <label htmlFor="rsvpNo">Not Coming</label>
-                      <Collapse isOpened={guestsIsOpen}>
-                        <label htmlFor="number">How many are coming?</label>
-                        <input
-                          id="number"
-                          type="number"
-                          name="guests"
-                          value="0"
-                          onChange={this.changeHandler}
-                          min="0"
-                          max="2"
-                          maxLength="1"
-                          step="1"
-                        />
-                        <button
-                          type="button"
-                          onClick={this.incrementGuestNumber}
-                        >
-                          +
-                        </button>
-                        <button
-                          type="button"
-                          onClick={this.decrementGuestNumber}
-                        >
-                          -
-                        </button>
-                        {invite.guests > 1 ? (
-                          <div>
-                            <p>Please select an entrees for</p>
-                            <label htmlFor="entree1">
-                              {invite.name.split(' ')[0]}
-                            </label>
-                            <select
-                              id="entree1"
-                              name="entree1"
-                              defaultValue="Please Select"
-                            >
-                              <option disabled hidden>
-                                Please Select
-                              </option>
-                              <option value="Grilled Salmon">
-                                Grilled Salmon
-                              </option>
-                              <option value="Seasonal Vegetarian Scampi">
-                                Seasonal Vegetarian Scampi
-                              </option>
-                              <option value="Kona Crusted Filet Tips">
-                                Kona Crusted Filet Tips
-                              </option>
-                            </select>
-                            <p>And</p>
-                            <label htmlFor="entree2">
-                              {invite.name.split(' ')[2]}
-                            </label>
-                            <select
-                              id="entree2"
-                              name="entree2"
-                              defaultValue="Please Select"
-                            >
-                              <option disabled hidden>
-                                Please Select
-                              </option>
-                              <option value="Grilled Salmon">
-                                Grilled Salmon
-                              </option>
-                              <option value="Seasonal Vegetarian Scampi">
-                                Seasonal Vegetarian Scampi
-                              </option>
-                              <option value="Kona Crusted Filet Tips">
-                                Kona Crusted Filet Tips
-                              </option>
-                            </select>
-                          </div>
-                        ) : (
-                          <div>
-                            <label htmlFor="entree1">
-                              Please select an entree for{' '}
-                              {invite.name.split(' ')[0]}
-                            </label>
-                            <select
-                              id="entree1"
-                              name="entree1"
-                              defaultValue="Please Select"
-                            >
-                              <option disabled hidden>
-                                Please Select
-                              </option>
-                              <option value="Grilled Salmon">
-                                Grilled Salmon
-                              </option>
-                              <option value="Seasonal Vegetarian Scampi">
-                                Seasonal Vegetarian Scampi
-                              </option>
-                              <option value="Kona Crusted Filet Tips">
-                                Kona Crusted Filet Tips
-                              </option>
-                            </select>
-                          </div>
-                        )}
-                      </Collapse>
-                    </fieldset>
-                    <button>Submit</button>
-                  </form>
-                </div>
-              ))
-            ) : (
-              <p>The code you entered is incorrect. Please try again.</p>
-            )}
-            <button onClick={this.closeModal}>X</button>
-          </Modal>
+            invitee={invitee}
+            modalIsOpen={modalIsOpen}
+            guestsIsOpen={guestsIsOpen}
+            changeHandler={this.changeHandler}
+            submitRsvpHandler={this.submitRsvpHandler}
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+            openGuests={this.openGuests}
+            closeGuests={this.closeGuests}
+            incrementGuestNumber={this.incrementGuestNumber}
+            decrementGuestNumber={this.decrementGuestNumber}
+          />
         </section>
       </div>
     );
