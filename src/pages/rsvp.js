@@ -117,7 +117,15 @@ class Rsvp extends Component {
                   <div>
                     <div>
                       <form onSubmit={this.submitCodeHandler}>
-                        <label htmlFor="invitationCode">
+                        <label
+                          htmlFor="invitationCode"
+                          style={{
+                            display: 'block',
+                            textAlign: 'center',
+                            lineHeight: '150%',
+                            fontSize: '1.5rem'
+                          }}
+                        >
                           Enter the code on your invitation
                         </label>
                         <input
