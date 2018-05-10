@@ -7,21 +7,21 @@ import NavBar from '../components/NavBar';
 import Divider from '../components/Divider';
 
 import line from '../images/root_SmallDivider.png';
-import pic1 from '../images/Save The Date/_ROZ6923.jpg';
-import pic2 from '../images/Save The Date/_ROZ6936.jpg';
-import pic3 from '../images/Save The Date/_ROZ6941.jpg';
-import pic4 from '../images/Save The Date/_ROZ6950.jpg';
-import pic5 from '../images/Save The Date/_ROZ6957.jpg';
-import pic6 from '../images/Save The Date/_ROZ7060.jpg';
-import pic7 from '../images/Save The Date/_ROZ7089.jpg';
-import pic8 from '../images/Save The Date/_ROZ7090.jpg';
-import pic9 from '../images/Save The Date/_ROZ7097.jpg';
-import pic10 from '../images/Save The Date/_ROZ7160.jpg';
-import pic11 from '../images/Save The Date/_ROZ7227.jpg';
-import pic12 from '../images/Save The Date/_ROZ7259.jpg';
-import pic13 from '../images/Save The Date/_ROZ7282.jpg';
-import pic14 from '../images/Save The Date/_ROZ7295.jpg';
-import pic15 from '../images/Save The Date/ROZ_7340.jpg';
+import pic1 from '../images/Tricia-Noel_18_01.jpg';
+import pic2 from '../images/Tricia-Noel_18_02.jpg';
+import pic3 from '../images/Tricia-Noel_18_03.jpg';
+import pic4 from '../images/Tricia-Noel_18_04.jpg';
+import pic5 from '../images/Tricia-Noel_18_05.jpg';
+import pic6 from '../images/Tricia-Noel_18_06.jpg';
+import pic7 from '../images/Tricia-Noel_18_07.jpg';
+import pic8 from '../images/Tricia-Noel_18_08.jpg';
+import pic9 from '../images/Tricia-Noel_18_09.jpg';
+import pic10 from '../images/Tricia-Noel_18_10.jpg';
+import pic11 from '../images/Tricia-Noel_18_11.jpg';
+import pic12 from '../images/Tricia-Noel_18_12.jpg';
+import pic13 from '../images/Tricia-Noel_18_13.jpg';
+import pic14 from '../images/Tricia-Noel_18_14.jpg';
+import pic15 from '../images/Tricia-Noel_18_15.jpg';
 
 const Title = styled.h2`
   text-align: center;
