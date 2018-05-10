@@ -15,7 +15,8 @@ const Container = styled.header`
   padding: 10px 0;
 
   ${media.handheld`
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: auto auto auto;
   `};
 `;
 
@@ -28,20 +29,12 @@ const Name = styled.h1`
     text-align: center;
     flex: 0 0 100%;
     order: 1;
-
-    ${media.handheld`
-    text-align: right;
-  `};
   }
 
   &:last-child {
     text-align: center;
     flex: 0 0 100%;
     order: 3;
-
-    ${media.handheld`
-    text-align: left;
-  `};
   }
 
   ${media.handheld`
