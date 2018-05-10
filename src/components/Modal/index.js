@@ -30,7 +30,7 @@ export default ({
 }) => {
   return (
     <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="Wedding">
-      {invitee.length > 0 ? (
+      {invitee.length !== undefined ? (
         invitee.map(invite => (
           <div key={invite.code}>
             <form onSubmit={submitRsvpHandler}>
@@ -147,7 +147,7 @@ export default ({
           </div>
         ))
       ) : (
-        <p>The code you entered is incorrect. Please try again.</p>
+        <p>Please try again.</p>
       )}
       <button onClick={closeModal}>X</button>
     </Modal>
