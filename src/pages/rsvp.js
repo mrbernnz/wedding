@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import MastHead from '../components/Masthead';
 import NavBar from '../components/NavBar';
@@ -7,28 +6,24 @@ import Divider from '../components/Divider';
 import Modal from '../components/Modal';
 
 import line from '../images/root_SmallDivider.png';
-
-const SmallDivider = styled.img`
-  display: block;
-  height: 50px;
-  width: 200px;
-  margin: 0 auto 30px;
-`;
+import { SmallDivider, Input, Error } from './rsvpCss';
 
 class Rsvp extends Component {
   state = {
-    value: '',
+    code: '',
     invitee: {},
+    isValidated: false,
     modalIsOpen: false,
     guestsIsOpen: false
   };
 
-  changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  changeHandler = ({ target: { value, name, classList } }) => {
+    classList.add('active');
+    this.setState({ [name]: value });
   };
 
-  fetchNames = async value => {
-    const url = `https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps?code=${value}`;
+  fetchNames = async code => {
+    const url = `https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps?code=${code}`;
 
     const res = await fetch(url),
       json = await res.json(),
@@ -37,14 +32,48 @@ class Rsvp extends Component {
     return data;
   };
 
-  submitCodeHandler = e => {
-    e.preventDefault();
+  vaildate = () => {
+    const formLength = this.formEl.length;
 
-    this.fetchNames(this.state.value).then(invitee =>
-      this.setState({ invitee })
-    );
+    if (this.formEl.checkValidity() === false) {
+      for (let i = 0; i < formLength; i++) {
+        const elem = this.formEl[i];
+        const errorLabel = elem.parentNode.querySelector('.invalid-feedback');
 
-    this.setState({ value: '' });
+        if (errorLabel && elem.nodeName.toLowerCase() !== 'button') {
+          !elem.validity.valid
+            ? (errorLabel.textContent = elem.validationMessage)
+            : (errorLabel.textContent = '');
+        }
+      }
+
+      return false;
+    } else {
+      for (let i = 0; i < formLength; i++) {
+        const elem = this.formEl[i];
+        const errorLabel = elem.parentNode.querySelector('.invalid-feedback');
+        if (errorLabel && elem.nodeName.toLowerCase() !== 'button') {
+          errorLabel.textContent = '';
+        }
+      }
+
+      return true;
+    }
+  };
+
+  submitCodeHandler = ({ preventDefault }) => {
+    preventDefault();
+
+    if (this.validate())
+      console.log('componet state', JSON.stringify(this.state));
+
+    /*
+     * this.fetchNames(this.state.code).then(invitee =>
+     *   this.setState({ invitee })
+     * );
+     */
+
+    this.setState({ code: '', isValidated: true });
   };
 
   submitRsvpHandler = e => {
@@ -92,8 +121,7 @@ class Rsvp extends Component {
   };
 
   render() {
-    const { value, invitee, modalIsOpen, guestsIsOpen } = this.state;
-
+    const { code, invitee, modalIsOpen, guestsIsOpen } = this.state;
     return (
       <div>
         <MastHead />
@@ -116,31 +144,31 @@ class Rsvp extends Component {
                 <div>
                   <div>
                     <div>
-                      <form onSubmit={this.submitCodeHandler}>
-                        <label
-                          htmlFor="invitationCode"
-                          style={{
-                            display: 'block',
-                            textAlign: 'center',
-                            lineHeight: '150%',
-                            fontSize: '1.5rem'
-                          }}
-                        >
-                          Enter the code on your invitation
-                        </label>
-                        <input
-                          id="invitationCode"
-                          type="search"
-                          name="value"
-                          placeholder="e.g. 123abc"
-                          value={value}
-                          onChange={this.changeHandler}
-                          style={{
-                            marginBottom: '20px',
-                            width: '100%',
-                            textAlign: 'center'
-                          }}
-                        />
+                      <form
+                        ref={form => (this.formEl = form)}
+                        onSubmit={this.submitCodeHandler}
+                        noValidate
+                      >
+                        <fieldset>
+                          <label
+                            htmlFor="invitationCode"
+                            style={{
+                              display: 'block',
+                              textAlign: 'center',
+                              lineHeight: '150%',
+                              fontSize: '1.5rem'
+                            }}
+                          >
+                            Enter the code on your invitation
+                          </label>
+                          <Input
+                            ref="code"
+                            required
+                            value={code}
+                            onChange={this.changeHandler}
+                          />
+                          <Error>Must be 5 characters long</Error>
+                        </fieldset>
                         <button
                           style={{ width: '100%' }}
                           onClick={this.openModal}
