@@ -11,12 +11,15 @@ export const Input = styled.input.attrs({
   id: 'invitationCode',
   type: 'search',
   name: 'code',
-  pattern: '(w).{5,5}',
   placeholder: 'e.g. 1a2b3c'
 })`
   margin-bottom: 20px;
   width: 100%;
   height: 30px;
+
+  &:focus {
+    outline: none;
+  }
 
   &:valid {
     box-shadow: 0 0 5px 1px green;
@@ -27,7 +30,7 @@ export const Input = styled.input.attrs({
   }
 
   &:invalid {
-    box-shadow: 0 0 5px 1px red;
+    // box-shadow: 0 0 5px 1px red;
   }
 `;
 

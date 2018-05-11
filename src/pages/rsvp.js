@@ -8,18 +8,39 @@ import Modal from '../components/Modal';
 import line from '../images/root_SmallDivider.png';
 import { SmallDivider, Input, Error } from './rsvpCss';
 
+const error = {
+  width: '100%',
+  padding: '0',
+  fontSize: '80%',
+  color: '#fff',
+  backgroundColor: '#900',
+  borderRadius: '0 0 5px 5px',
+  boxSizing: 'border-box'
+};
+
 class Rsvp extends Component {
   state = {
     code: '',
     invitee: {},
-    isValidated: false,
     modalIsOpen: false,
     guestsIsOpen: false
   };
 
-  changeHandler = ({ target: { value, name, classList } }) => {
-    classList.add('active');
-    this.setState({ [name]: value });
+  changeHandler = ({ target }) => {
+    const re = new RegExp(target.pattern);
+    let error = document.querySelector('.error');
+
+    this.setState({ [target.name]: target.value });
+
+    if (re.test(target.value)) {
+      if (target.validity.valid) {
+        error.innerHTML = '';
+        error.className = 'error';
+        target.parentNode.parentNode.lastChild.disabled = false;
+      } else {
+        target.parentNode.parentNode.lastChild.disabled = true;
+      }
+    }
   };
 
   fetchNames = async code => {
@@ -32,48 +53,20 @@ class Rsvp extends Component {
     return data;
   };
 
-  vaildate = () => {
-    const formLength = this.formEl.length;
+  submitCodeHandler = e => {
+    const search = !e.target.firstChild.childNodes[1].validity.valid;
+    let error = document.querySelector('.error');
 
-    if (this.formEl.checkValidity() === false) {
-      for (let i = 0; i < formLength; i++) {
-        const elem = this.formEl[i];
-        const errorLabel = elem.parentNode.querySelector('.invalid-feedback');
-
-        if (errorLabel && elem.nodeName.toLowerCase() !== 'button') {
-          !elem.validity.valid
-            ? (errorLabel.textContent = elem.validationMessage)
-            : (errorLabel.textContent = '');
-        }
-      }
-
-      return false;
+    if (search) {
+      error.innerHTML = 'I expect a code.';
     } else {
-      for (let i = 0; i < formLength; i++) {
-        const elem = this.formEl[i];
-        const errorLabel = elem.parentNode.querySelector('.invalid-feedback');
-        if (errorLabel && elem.nodeName.toLowerCase() !== 'button') {
-          errorLabel.textContent = '';
-        }
-      }
+      this.fetchNames(this.state.code).then(invitee =>
+        this.setState({ invitee })
+      );
 
-      return true;
+      this.setState({ code: '' });
     }
-  };
-
-  submitCodeHandler = ({ preventDefault }) => {
-    preventDefault();
-
-    if (this.validate())
-      console.log('componet state', JSON.stringify(this.state));
-
-    /*
-     * this.fetchNames(this.state.code).then(invitee =>
-     *   this.setState({ invitee })
-     * );
-     */
-
-    this.setState({ code: '', isValidated: true });
+    e.preventDefault();
   };
 
   submitRsvpHandler = e => {
@@ -144,11 +137,7 @@ class Rsvp extends Component {
                 <div>
                   <div>
                     <div>
-                      <form
-                        ref={form => (this.formEl = form)}
-                        onSubmit={this.submitCodeHandler}
-                        noValidate
-                      >
+                      <form onSubmit={this.submitCodeHandler} noValidate>
                         <fieldset>
                           <label
                             htmlFor="invitationCode"
@@ -162,14 +151,17 @@ class Rsvp extends Component {
                             Enter the code on your invitation
                           </label>
                           <Input
-                            ref="code"
+                            autoFocus
                             required
+                            pattern="\w.{4,4}"
                             value={code}
                             onChange={this.changeHandler}
                           />
+                          <span className="error" aria-live="polite" />
                           <Error>Must be 5 characters long</Error>
                         </fieldset>
                         <button
+                          disabled
                           style={{ width: '100%' }}
                           onClick={this.openModal}
                         >
