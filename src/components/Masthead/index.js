@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import { media } from '../../utils/styles';
 
-import NavBar from '../NavBar';
-import Divider from '../Divider';
 import smallGraphic from '../../images/root_SmallGraphic.png';
 
 const Container = styled.header`
@@ -71,13 +69,9 @@ const SmallGraphic = styled.img`
 `;
 
 export default () => (
-  <div>
-    <Container>
-      <Name>Tricia Quartey</Name>
-      <SmallGraphic src={smallGraphic} alt="Small Graphic" />
-      <Name>Noel Sagaille</Name>
-    </Container>
-    <NavBar />
-    <Divider />
-  </div>
+  <Container>
+    <Name>Tricia Quartey</Name>
+    <SmallGraphic src={smallGraphic} alt="Small Graphic" />
+    <Name>Noel Sagaille</Name>
+  </Container>
 );
