@@ -63,7 +63,9 @@ export default class NavBar extends Component {
         <Nav className={isTop ? 'graybck' : ''}>
           <NavList>
             <ListItem path="/" link="Home" />
+            {/*
             <ListItem path="/rsvp" link="Rsvp" />
+            */}
             <ListItem path="/photos" link="Photos" />
             <ListItem path="/events" link="Events" />
           </NavList>
