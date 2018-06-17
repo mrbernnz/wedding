@@ -1,28 +1,32 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
-import SearchBar from '../SearchBar';
-import styled from 'styled-components';
+import withRoot from '../../withRoot';
 
-const button = {
-  fontFamily: 'Lulu Clean One Bold',
-  fontSize: '1.1rem',
-  textAlign: 'center',
-  textDecoration: 'none',
-  display: 'block',
-  margin: '0 auto',
-  width: '50%'
-};
+import SearchBar from '../Inputs/search';
 
-export default function CodeForm({ submit, code, change, openModal }) {
+const styles = theme => ({
+  button: {
+    fontFamily: 'Lulu Clean One Bold',
+    fontSize: '1.1rem',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'block',
+    margin: '0 auto',
+    width: '50%'
+  }
+});
+
+function CodeForm({ classes, submit, code, change, openModal }) {
   return (
     <form onSubmit={submit}>
       <SearchBar code={code} change={change} />
       <Button
+        className={classes.button}
         type="submit"
         variant="raised"
         color="primary"
-        style={button}
         onClick={openModal}
       >
         Find RSVP
@@ -30,3 +34,5 @@ export default function CodeForm({ submit, code, change, openModal }) {
     </form>
   );
 }
+
+export default withRoot(withStyles(styles)(CodeForm));
