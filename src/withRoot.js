@@ -6,6 +6,12 @@ import getPageContext from './getPageContext';
 
 function withRoot(Component) {
   class WithRoot extends React.Component {
+    constructor(props) {
+      super(props);
+
+      this.pageContext = this.props.pageContext || getPageContext();
+    }
+
     componentDidMount() {
       // Remove the server-side injected CSS.
       const jssStyles = document.querySelector('#server-side-jss');
@@ -14,7 +20,7 @@ function withRoot(Component) {
       }
     }
 
-    pageContext = this.props.pageContext || getPageContext();
+    pageContext = null;
 
     render() {
       // MuiThemeProvider makes the theme available down the React tree thanks to React context.
@@ -32,7 +38,7 @@ function withRoot(Component) {
   }
 
   WithRoot.propTypes = {
-    pageContext: PropTypes.object
+    pageContext: PropTypes.object,
   };
 
   return WithRoot;
