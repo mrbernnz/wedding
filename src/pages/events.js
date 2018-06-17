@@ -1,58 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
+import styles from '../styles/events';
+import { withStyles } from '@material-ui/core/styles';
+import withRoot from '../withRoot';
 
-import { media } from '../utils/styles';
 import MastHead from '../components/Masthead';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Nav';
 import Divider from '../components/Divider';
 
 import line from '../images/root_SmallDivider.png';
 
-const Title = styled.h2`
-  font-family: 'Lulu Clean One Bold';
-  text-align: center;
-`;
-
-const SmallDivider = styled.img`
-  display: block;
-  height: 50px;
-  width: 200px;
-  margin: 0 auto 30px;
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  flex-basis: 0;
-  padding: 0 15px;
-  text-align: left;
-`;
-
-const Anchor = styled.a`
-  text-transform: uppercase;
-  color: rgb(146, 148, 146);
-  text-decoration: none;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  background-color: transparent;
-`;
-
-const EventsPage = () => (
+const EventsPage = ({ classes }) => (
   <div>
     <MastHead />
     <NavBar />
     <Divider />
     <section>
-      <Title>Events</Title>
-      <SmallDivider src={line} alt="curved line" />
+      <h2 className={classes.title}>Events</h2>
+      <img src={line} alt="curved line" className={classes.smallDivider} />
       <div style={{ marginBottom: '80px' }}>
         <div style={{ margin: '0 auto', maxWidth: '1170px' }}>
           <div style={{ margin: '0 8.3334%' }}>
             <div style={{ display: 'flex' }}>
-              <InfoContainer>
+              <div className={classes.infoContainer}>
                 <div style={{ marginBottom: '30px' }}>
                   <div>
                     <h3 style={{ fontFamily: 'Lulu Clean One Bold' }}>
@@ -67,9 +36,12 @@ const EventsPage = () => (
                     </p>
                   </div>
                   <div style={{ marginTop: '40px' }}>
-                    <Anchor href="https://maps.google.com/maps?saddr=Current+Location&daddr=4 Lakeview Drive South Gibbsboro, NJ 08026">
+                    <a
+                      className={classes.anchor}
+                      href="https://maps.google.com/maps?saddr=Current+Location&daddr=4 Lakeview Drive South Gibbsboro, NJ 08026"
+                    >
                       Get Directions
-                    </Anchor>
+                    </a>
                   </div>
                 </div>
                 <div>
@@ -83,7 +55,7 @@ const EventsPage = () => (
                   </div>
                   <div />
                 </div>
-              </InfoContainer>
+              </div>
             </div>
           </div>
         </div>
@@ -92,4 +64,4 @@ const EventsPage = () => (
   </div>
 );
 
-export default EventsPage;
+export default withRoot(withStyles(styles)(EventsPage));
