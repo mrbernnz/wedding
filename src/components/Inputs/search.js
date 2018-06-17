@@ -1,11 +1,16 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
 
-const textField = {
-  marginBottom: '20px'
-};
+import withRoot from '../../withRoot';
 
-export default function SearchBar({ code, change }) {
+const styles = theme => ({
+  textField: {
+    marginBottom: '20px'
+  }
+});
+
+function SearchBar({ classes, code, change }) {
   return (
     <TextField
       id="invitationCode"
@@ -18,7 +23,9 @@ export default function SearchBar({ code, change }) {
       margin="normal"
       pattern="\w.{4,4}"
       onChange={change}
-      style={textField}
+      className={classes.textField}
     />
   );
 }
+
+export default withRoot(withStyles(styles)(SearchBar));

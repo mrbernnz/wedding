@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mediaForNav } from '../../utils/styles';
+import { mediaForNav } from '../../utils/media';
 import Link from 'gatsby-link';
 
 export const Container = styled.div`

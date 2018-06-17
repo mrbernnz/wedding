@@ -3,19 +3,26 @@ import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { withStyles } from '@material-ui/core/styles';
 
-const guestNumber = {
-  width: '100%'
-};
+import withRoot from '../../withRoot';
 
-export default function GuestNumber({ guests, changeHandler }) {
+function styles(theme) {
+  return {
+    guestNumber: {
+      width: '100%'
+    }
+  };
+}
+
+function GuestNumber({ classes, guests, changeHandler }) {
   return (
-    <FormControl style={guestNumber}>
+    <FormControl className={classes.guestNumber}>
       <NativeSelect
+        className={classe.guestNumber}
         name="guests"
         onChange={changeHandler}
         input={<Input id="guests" />}
-        style={guestNumber}
       >
         <option value="" />
         <option value={'1'}>One</option>
@@ -25,3 +32,5 @@ export default function GuestNumber({ guests, changeHandler }) {
     </FormControl>
   );
 }
+
+export default withRoot(withStyles(styles)(GuestNumber));

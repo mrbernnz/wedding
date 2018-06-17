@@ -8,7 +8,7 @@ import RsvpForm from '../Form/rsvp';
 
 const styles = theme => ({
   progress: {
-    margin: theme.spacing.unit * 2.5
+    margin: theme.spacing.unit * 5.5
   }
 });
 

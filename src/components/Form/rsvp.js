@@ -8,8 +8,8 @@ import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core/styles';
 import withRoot from '../../withRoot';
 
-import Entree from '../Selection/entree';
-import GuestNumber from '../Selection/guests';
+import Entree from '../Selects/entree';
+import GuestNumber from '../Selects/guest';
 
 const styles = theme => ({
   container: {

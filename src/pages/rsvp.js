@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
 
 import MastHead from '../components/Masthead';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Nav';
 import Divider from '../components/Divider';
 import CodeForm from '../components/Form/code';
 import Modal from '../components/Modal';
 import { withStyles } from '@material-ui/core/styles';
+
 import withRoot from '../withRoot';
-
+import styles from '../styles/rsvp';
 import line from '../images/root_SmallDivider.png';
-import { SmallDivider, Error } from '../styles/rsvpCss';
-
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: 'Lulu Clean One Bold'
-  }
-});
 
 class Rsvp extends Component {
   state = {
@@ -66,7 +56,7 @@ class Rsvp extends Component {
         <Divider />
         <section className={classes.container}>
           <h2>You are invited</h2>
-          <SmallDivider src={line} alt="curved line" />
+          <img className={classes.smallDivider} src={line} alt="curved line" />
           <div style={{ marginBottom: '80px', width: '50%' }}>
             <div style={{ maxWidth: '1170px' }}>
               <div>

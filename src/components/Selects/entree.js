@@ -3,20 +3,27 @@ import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { withStyles } from '@material-ui/core/styles';
 
-const entreeStyle = {
-  width: '100%'
-};
+import withRoot from '../../withRoot';
 
-export default function Entree({ entree, guestEntree, changeHandler, person }) {
+function styles(theme) {
+  return {
+    entreeStyle: {
+      width: '100%'
+    }
+  };
+}
+
+function Entree({ classes, entree, guestEntree, changeHandler, person }) {
   return (
-    <FormControl style={entreeStyle}>
+    <FormControl className={entreeStyle}>
       <NativeSelect
+        className={classes.entreeStyle}
         name={guestEntree}
         value={entree}
         onChange={changeHandler}
         input={<Input id={guestEntree} />}
-        style={entreeStyle}
       >
         <option value="" />
         <option value={'Seasonal Vegetarian Scampi'}>
@@ -33,3 +40,5 @@ export default function Entree({ entree, guestEntree, changeHandler, person }) {
     </FormControl>
   );
 }
+
+export default withRoot(withStyles(styles)(Entree));
