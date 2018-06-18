@@ -17,7 +17,7 @@ function styles(theme) {
 
 function Entree({ classes, entree, guestEntree, changeHandler, person }) {
   return (
-    <FormControl className={entreeStyle}>
+    <FormControl className={classes.entreeStyle}>
       <NativeSelect
         className={classes.entreeStyle}
         name={guestEntree}

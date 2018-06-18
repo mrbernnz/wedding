@@ -8,8 +8,7 @@ import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core/styles';
 import withRoot from '../../withRoot';
 
-import Entree from '../Selects/entree';
-import GuestNumber from '../Selects/guest';
+import Transition from '../Transitions';
 
 const styles = theme => ({
   container: {
@@ -28,53 +27,29 @@ function RsvpForm({
   invite,
   submit
 }) {
-  return [
-    <DialogTitle id="form-dialog-title">Hi {invite.name.trim()}!</DialogTitle>,
-    <form className={classes.container} onSubmit={submit}>
-      <DialogContent>
-        <input type="hidden" name="code" value={invite.code} />
-        <input type="hidden" name="rsvp" value="yes" />
-        <GuestNumber guests={guests} changeHandler={changeHandler} />
-        <br />
-        {invite.invited > 1 ? (
-          <div>
-            <Entree
-              guestEntree="guestone"
-              changeHandler={changeHandler}
-              person="One"
-            />
-            <br />
-            <Entree
-              guestEntree="guesttwo"
-              changeHandler={changeHandler}
-              person="Two"
-            />
-          </div>
-        ) : (
-          <Entree
-            guestEntree="guestone"
+  return (
+    <div>
+      <DialogTitle id="form-dialog-title">Hi {invite.name.trim()}!</DialogTitle>
+      <form className={classes.container} onSubmit={submit}>
+        <DialogContent>
+          <input type="hidden" name="code" value={invite.code} />
+          <Transition
+            guests={guests}
             changeHandler={changeHandler}
-            person="One"
+            invite={invite}
           />
-        )}
-        <TextField
-          type="email"
-          name="email"
-          margin="normal"
-          helperText="Please enter your email"
-          fullWidth
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={closeModal} type="button" color="primary">
-          Cancel
-        </Button>
-        <Button onClick={closeModal} type="submit" color="primary">
-          Send
-        </Button>
-      </DialogActions>
-    </form>
-  ];
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeModal} type="button" color="primary">
+            Cancel
+          </Button>
+          <Button onClick={closeModal} type="submit" color="primary">
+            Send
+          </Button>
+        </DialogActions>
+      </form>
+    </div>
+  );
 }
 
 export default withRoot(withStyles(styles)(RsvpForm));

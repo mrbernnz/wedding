@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "author": "Noel Sagaille <noel.sagaille@gmail.com>",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "heroku-postbuild": "npm run build",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
-  },
   "dependencies": {
     "@material-ui/core": "latest",
     "gatsby": "latest",
@@ -21,10 +15,11 @@
     "react-dom": "latest",
     "react-helmet": "5.2.0",
     "react-jss": "latest",
-    "react-modal": "3.4.5",
     "styled-components": "3.3.2"
   },
-  "devDependencies": {
-    "prettier": "1.13.5"
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "heroku-postbuild": "npm run build"
   }
 }
