@@ -19,7 +19,6 @@ class RsvpModal extends Component {
 
   submitRsvpHandler = e => {
     e.preventDefault();
-    alert(`Thanks for RSVPing, see you there!`);
 
     const url =
       'https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps';

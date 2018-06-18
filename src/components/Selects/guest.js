@@ -19,7 +19,7 @@ function GuestNumber({ classes, guests, changeHandler }) {
   return (
     <FormControl className={classes.guestNumber}>
       <NativeSelect
-        className={classe.guestNumber}
+        className={classes.guestNumber}
         name="guests"
         onChange={changeHandler}
         input={<Input id="guests" />}
