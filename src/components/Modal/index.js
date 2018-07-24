@@ -24,6 +24,7 @@ class RsvpModal extends Component {
       'https://91b8kz682h.execute-api.us-east-1.amazonaws.com/dev/rsvps';
 
     const res = fetch(url, { method: 'POST', body: new FormData(e.target) });
+    alert('Thanks for RSVPing, see you there!');
     this.props.closeModal();
   };
 
