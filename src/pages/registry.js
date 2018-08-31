@@ -36,7 +36,7 @@ const RegistryPage = ({ classes }) => (
                   <div style={{ marginTop: '40px' }}>
                     <a
                       className={classes.anchor}
-                      href="tgt.gifts/4568809b445c4701812599f615b989bd"
+                      href="https://www.target.com/gift-registry/giftgiver?registryId=4568809b445c4701812599f615b989bd&lnk=registry_custom_url"
                       target="_blank"
                     >
                       View Registry
