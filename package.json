@@ -5,17 +5,17 @@
   "author": "Noel Sagaille <noel.sagaille@gmail.com>",
   "dependencies": {
     "@material-ui/core": "latest",
-    "gatsby": "latest",
+    "gatsby": "2.1.1",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-styled-components": "2.0.11",
     "jss": "latest",
-    "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "prop-types": "15.6.2",
+    "react": "16.5.0",
+    "react-dom": "16.5.0",
     "react-helmet": "5.2.0",
     "react-jss": "latest",
-    "styled-components": "3.3.2",
+    "styled-components": "4.0.0",
     "snyk": "^1.88.0"
   },
   "scripts": {
