@@ -5,7 +5,7 @@
   "author": "Noel Sagaille <noel.sagaille@gmail.com>",
   "dependencies": {
     "@material-ui/core": "latest",
-    "gatsby": "latest",
+    "gatsby": "2.0.0",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-styled-components": "2.0.11",
@@ -16,14 +16,14 @@
     "react-helmet": "5.2.0",
     "react-jss": "latest",
     "styled-components": "3.3.2",
-    "snyk": "^1.88.0"
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
     "heroku-postbuild": "npm run build",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "snyk-protect": "snyk-protect",
+    "prepare": "yarn run snyk-protect"
   },
   "snyk": true
 }
