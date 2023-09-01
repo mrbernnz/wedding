@@ -1,8 +1,25 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.12.0
+version: v1.25.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:lodash:20180130':
     - gatsby > webpack-configurator > lodash:
         patched: '2018-07-03T02:15:29.025Z'
+  'npm:extend:20180424':
+    - gatsby > postcss-import > pkg-resolve > jspm > liftoff > extend:
+        patched: '2023-09-01T13:27:20.919Z'
+        id: 'npm:extend:20180424'
+        path: gatsby > postcss-import > pkg-resolve > jspm > liftoff > extend
+    - gatsby > postcss-import > pkg-resolve > jspm > proper-lockfile > extend:
+        patched: '2023-09-01T13:27:20.919Z'
+        id: 'npm:extend:20180424'
+        path: >-
+          gatsby > postcss-import > pkg-resolve > jspm > proper-lockfile >
+          extend
+    - gatsby > postcss-import > pkg-resolve > jspm > jspm-github > request > extend:
+        patched: '2023-09-01T13:27:20.919Z'
+        id: 'npm:extend:20180424'
+        path: >-
+          gatsby > postcss-import > pkg-resolve > jspm > jspm-github > request >
+          extend
