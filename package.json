@@ -4,8 +4,8 @@
   "private": true,
   "author": "Noel Sagaille <noel.sagaille@gmail.com>",
   "dependencies": {
-    "@material-ui/core": "latest",
-    "gatsby": "latest",
+    "@material-ui/core": "4.12.4",
+    "gatsby": "3.0.0",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-styled-components": "2.0.11",
